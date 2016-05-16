@@ -11,17 +11,22 @@ var request = {
         "income"
     ],
     "api": "acs5",
-    "year": "2013"
+    "year": ""
 };
 
+//The user enters the zip code of the area that they want to see statistics on. 
 var zip = Number(prompt("Please enter a zip code: "));
 request.zip = zip;
 
+var year = Number(prompt("Please enter the year"));
+request.year = year;
+
+//Here the user will select which variables they want to see in the area they selected.
 var variable = prompt("Please enter a variable you would like to examine");
 request.variables.push(variable);
 
-request.variables[1] = "poverty";
-request.variables[2] = "population";
+// request.variables[1] = "poverty";
+// request.variables[2] = "population";
 //request.zip = 30305;
 
 census.APIRequest(request, function (response) {
