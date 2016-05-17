@@ -8,13 +8,23 @@
 </head>
 <body>
   
-  <input type="number" id="zip">Enter Zip here</input>
-  <input type="number" id="year">Enter year</input>
-  <input type="text" id="variables">Enter variables</input>
-  <button onclick="test()">Submit</button>
+  <input type="number" id="zip" placeholder="Zip"></input>
+  <input type="number" id="year" placeholder="Year"></input>
+  <input type="text" id="variables" placeholder="variables"></input>
+  <button onclick="data()">Submit</button>
+
+  <p>Please note that at this point the data() function can only take one variable.</p>
+  <p>Here are variables that I have tried and that work:</p>
+  <p> Please look at readme file for a link to more</p>
+  <ul>
+    <li>population</li>
+    <li>poverty</li>
+    <li>median_male_age</li>
+    <li>median_home_value</li>
+  </ul>
+
   <p id="data">Data Here:</p>
 
    <script src="js/api.js"></script> 
 </body>
 </html>
-

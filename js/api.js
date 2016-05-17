@@ -29,17 +29,23 @@ var request = {
 // request.variables[2] = "population";
 //request.zip = 30305;
 
-//Function to attempt to get input fields working. 
-function test(){
+//Function which will gather data from user and then submit it to the API. The API will then return 
+//the data that was requested. 
+function data(){
     var zip = document.getElementById("zip").value;
-    var year = document.getElementById("year").value
-    
-}
+    var year = document.getElementById("year").value;
+    var variable = document.getElementById("variables").value;
+    request.zip = zip;
+    request.year = year;
+    request.variables.push(variable);
 
-census.APIRequest(request, function (response) {
+    census.APIRequest(request, function (response) {
     //Outputs the raw JSON text
    jQuery("#data").text(JSON.stringify(response, null, 4));
-});
+    });    
+}
+
+
 
 
 

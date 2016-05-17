@@ -18,3 +18,9 @@ One can read about this problem here:
 
 http://stackoverflow.com/questions/20035101/no-access-control-allow-origin-header-is-present-on-the-requested-resource
 
+= Variables
+
+Here is the link to the site that has a whole list of variables:
+
+http://uscensusbureau.github.io/citysdk/guides/censusModule/queryBuilder.html
+
