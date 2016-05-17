@@ -3,7 +3,7 @@ var census = sdk.modules.census; //Create an instance of the module
 census.enable("4eec81c83b1659c8430d700582947782ab1c196c"); //Enable module with the API key
 
 
-//creating the request
+//creating the request variable. Please note that I have left in income as the default variable.
 var request = {
     "level": "county",
     "zip": "",
@@ -39,9 +39,10 @@ function data(){
     request.year = year;
     request.variables.push(variable);
 
+    //The request to gather the actual data.
     census.APIRequest(request, function (response) {
-    //Outputs the raw JSON text
-   jQuery("#data").text(JSON.stringify(response, null, 4));
+        //Outputs the raw JSON text
+        jQuery("#data").text(JSON.stringify(response, null, 4));
     });    
 }
 
