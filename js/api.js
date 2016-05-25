@@ -11,7 +11,8 @@ var request = {
         "income"
     ],
     "api": "acs5",
-    "year": ""
+    "year": "",
+    "tract": ""
 };
 
 //The user enters the zip code of the area that they want to see statistics on. 
@@ -35,6 +36,7 @@ function data(){
     var zip = document.getElementById("zip").value;
     var year = document.getElementById("year").value;
     var variable = document.getElementById("variables").value;
+    //var tract = document.getElementById("tract").value;
     request.zip = zip;
     request.year = year;
     request.variables.push(variable);
@@ -43,10 +45,9 @@ function data(){
     census.APIRequest(request, function (response) {
         //Outputs the raw JSON text
         jQuery("#data").text(JSON.stringify(response, null, 4));
-    });    
+    });   
+    alert(request.variables[1]) 
 }
-
-
 
 
 
