@@ -15,21 +15,6 @@ var request = {
     "tract": ""
 };
 
-//The user enters the zip code of the area that they want to see statistics on. 
-// var zip = Number(prompt("Please enter a zip code: "));
-// request.zip = zip;
-
-// var year = Number(prompt("Please enter the year"));
-// request.year = year;
-
-//Here the user will select which variables they want to see in the area they selected.
-// var variable = prompt("Please enter a variable you would like to examine");
-// request.variables.push(variable);
-
-// request.variables[1] = "poverty";
-// request.variables[2] = "population";
-//request.zip = 30305;
-
 //Function which will gather data from user and then submit it to the API. The API will then return 
 //the data that was requested. 
 function data(){
@@ -44,10 +29,29 @@ function data(){
     //The request to gather the actual data.
     census.APIRequest(request, function (response) {
         //Outputs the raw JSON text
-        jQuery("#data").text(JSON.stringify(response, null, 4));
-    });   
-    alert(request.variables[1]) 
+        //jQuery("#data").text(JSON.stringify(response, null, 4));
+        jQuery("#data").text(JSON.stringify(+response.data[0].income, null, 4));
+        //console.log(JSON.parse(test));
+        //alert(parseInt(test));
+    });     
 }
+
+
+////////// Practice Code //////////////////
+//The user enters the zip code of the area that they want to see statistics on. 
+// var zip = Number(prompt("Please enter a zip code: "));
+// request.zip = zip;
+
+// var year = Number(prompt("Please enter the year"));
+// request.year = year;
+
+//Here the user will select which variables they want to see in the area they selected.
+// var variable = prompt("Please enter a variable you would like to examine");
+// request.variables.push(variable);
+
+// request.variables[1] = "poverty";
+// request.variables[2] = "population";
+//request.zip = 30305;
 
 
 
