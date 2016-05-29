@@ -40,7 +40,7 @@ function data(){
 /////////////  Sliding effect 
 
 $("#menu").click(function() {
-  $("#toggle").toggle(1000)
+  $("#toggle").slideToggle(1000)
 });
 
 ////////// Google Maps ////////////////

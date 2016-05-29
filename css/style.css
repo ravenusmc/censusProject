@@ -9,10 +9,9 @@ html, body {
 }
 
 #map {
-  height: 50%;
-  width: 50%;
-  margin-top: 50px;
-  /*display: none;*/
+  display: block;
+  width: 600px;
+  height: 400px;
 }
 
 /* CSS for the slider button */
@@ -27,5 +26,7 @@ html, body {
 .data-form {
   margin-top: 30px;
   margin-left: 10px;
-
 }
+
+
+
