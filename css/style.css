@@ -1,5 +1,9 @@
 #toggle {
-  width: 100px;
-  height: 100px;
-  background: #ccc;
+  width: 200px;
+  height: 200px;
+  border: 2px solid blue;
+}
+
+.test {
+  padding-top: 100px;
 }

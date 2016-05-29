@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+<!-- Nav Bar -->  
 <nav class="navbar navbar-dark bg-primary">
   <a class="navbar-brand" href="#">Data</a>
   <ul class="nav navbar-nav">
@@ -28,25 +30,32 @@
 </nav>
   
 <div class="container p-t-3">
-  <form>
-    <fieldset class="form-group">
-      <input type="number" id="zip" placeholder="Zip">
-    </fieldset>
-    <fieldset class="form-group">
-      <input type="number" id="year" placeholder="Year">
-    </fieldset>
-    <fieldset class="form-group">  
-      <input type="text" id="variables" placeholder="variables">
-    </fieldset>
-    <!--<input type="number" id="tract" placeholder="tract"></input>-->
-    <button onclick="data()">Submit</button>
-  </form>
-    <p id="data">Data Appears Here:</p>
-  <p>Click anywhere to toggle the box.</p>
-  <div id="toggle">hello</div>
+  <div class="row">
+    <div class="col-md-8">
+      <p id="data">Data Appears Here:</p>
+    </div>
+    <div class="col-md-4">
+      <p>Click anywhere to toggle the box.</p>
+      <div id="toggle">
+        <form>
+          <fieldset class="form-group">
+            <input type="number" id="zip" placeholder="Zip">
+          </fieldset>
+          <fieldset class="form-group">
+            <input type="number" id="year" placeholder="Year">
+          </fieldset>
+          <fieldset class="form-group">  
+            <input type="text" id="variables" placeholder="variables">
+          </fieldset>
+          <!--<input type="number" id="tract" placeholder="tract"></input>-->
+          <button onclick="data()">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="container">
+<div class="container test">
   <p>Please note that at this point the data() function can only take one variable.</p>
   <p>Here are variables that I have tried and that work:</p>
   <p> Please look at readme file for a link to more</p>
