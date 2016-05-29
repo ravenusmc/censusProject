@@ -26,12 +26,23 @@
   </ul>
 </nav>
   
-  <input type="number" id="zip" placeholder="Zip"></input>
-  <input type="number" id="year" placeholder="Year"></input>
-  <input type="text" id="variables" placeholder="variables"></input>
-  <!--<input type="number" id="tract" placeholder="tract"></input>-->
-  <button onclick="data()">Submit</button>
+<div class="container p-t-3">
+  <form>
+    <fieldset class="form-group">
+      <input type="number" id="zip" placeholder="Zip">
+    </fieldset>
+    <fieldset class="form-group">
+      <input type="number" id="year" placeholder="Year">
+    </fieldset>
+    <fieldset class="form-group">  
+      <input type="text" id="variables" placeholder="variables">
+    </fieldset>
+    <!--<input type="number" id="tract" placeholder="tract"></input>-->
+    <button onclick="data()">Submit</button>
+  </form>
+</div>
 
+<div class="container">
   <p>Please note that at this point the data() function can only take one variable.</p>
   <p>Here are variables that I have tried and that work:</p>
   <p> Please look at readme file for a link to more</p>
@@ -41,10 +52,10 @@
     <li>median_male_age</li>
     <li>median_home_value</li>
   </ul>
-
   <p>Please note: The data may take 3-5 seconds to appear.</p>
 
   <p id="data">Data Here:</p>
+</div>
 
   <script src="js/api.js"></script> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
