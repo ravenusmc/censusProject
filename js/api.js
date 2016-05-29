@@ -28,38 +28,57 @@ function data(){
 
     //The request to gather the actual data.
     census.APIRequest(request, function (response) {
-        //Outputs the raw JSON text
-        //jQuery("#data").text(JSON.stringify(response, null, 4));
-        jQuery("#data").text(JSON.stringify(+response.data[0].income, null, 4));
+        //Outputs the raw JSON text-full data
+        jQuery("#data").text(JSON.stringify(response, null, 4));
+        //Below outputs only income or whatever is requested. 
+        //jQuery("#data").text(JSON.stringify(+response.data[0].income, null, 4));
         //console.log(JSON.parse(test));
         //alert(parseInt(test));
     });     
 }
 
-//JQuery
+/////////////  Sliding effect 
+
 $("#menu").click(function() {
-  $("#toggle").toggle("slide");
+  $("#toggle").toggle(1000)
 });
 
 ////////// Google Maps ////////////////
 
-function data(){
-    
-      array = []
-      var lat = document.getElementById("lat").value;
-      var lon = document.getElementById("lon").value;
-      array.push(lat);
-      array.push(lon);
-      alert(array);
-}
-
-var map;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 34.1207, lng: -84.0044},
-    zoom: 10
+    zoom: 10,
+    scrollwheel: false
     });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

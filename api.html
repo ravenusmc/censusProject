@@ -1,0 +1,30 @@
+<!-- I was having problems with my index.html file so I created this one to see if I could track down
+  the problem. Believe that the citySDK module is down. -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test File</title>
+    <script src="https://cdn.rawgit.com/uscensusbureau/citysdk/Release1.1/js/citysdk.js"></script>
+    <script src="https://cdn.rawgit.com/uscensusbureau/citysdk/Release1.1/js/citysdk.census.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+
+<form>
+  <input type="number" id="zip" placeholder="Zip">
+  <input type="number" id="year" placeholder="Year">
+  <input type="text" id="variables" placeholder="variables">
+  <button onclick="data()">Submit</button>
+</form>
+ 
+<p id="data">Data Appears Here:</p> 
+
+
+<script src="js/api.js"></script> 
+</body>
+</html>
+
+

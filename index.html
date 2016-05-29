@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
 <!-- Nav Bar -->  
 <nav class="navbar navbar-dark bg-primary">
   <a class="navbar-brand" href="#">Data</a>
@@ -28,16 +27,15 @@
     </li>
   </ul>
 </nav>
-  
+
 <div class="container p-t-3">
   <div class="row">
-    <div class="col-md-8">
-      <p id="data">Data Appears Here:</p>
+    <div class="col-md-10">  
     </div>
-    <div class="col-md-4">
+    <div class="col-md-2">
       <button id="menu" class="btn btn-primary">Menu</button>
       <div id="toggle">
-        <form>
+        <form class="data-form">
           <fieldset class="form-group">
             <input type="number" id="zip" placeholder="Zip">
           </fieldset>
@@ -48,15 +46,17 @@
             <input type="text" id="variables" placeholder="variables">
           </fieldset>
           <!--<input type="number" id="tract" placeholder="tract"></input>-->
-          <button onclick="data()">Submit</button>
+          <button class="btn btn-info" onclick="data()">Submit</button>
         </form>
       </div>
+      <p id="data">Data Appears Here:</p> 
     </div>
   </div>
 </div>
 
+
 <div id="map" class="container">
-  <div  class="row">
+  <div class="row">
     <div class="col-md-6">
       One of two columns
     </div>
@@ -66,19 +66,13 @@
   </div>
 </div>
 
-<div class="container">
-  <form>
-    <input id="lat" placeholder="lat">
-    <input id="lon" placeholder="long">
-    <button onclick="data()">Submit</button>
-  </form>
-</div>
+
 
 <script src="js/api.js"></script> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB33d6N7xtRGzfJMmyIzYA9Mhy6w8941O8 callback=initMap"
-async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB33d6N7xtRGzfJMmyIzYA9Mhy6w8941O8&callback=initMap"
+    async defer></script>
 </body>
 </html>
 
