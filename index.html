@@ -6,6 +6,7 @@
     <script src="https://cdn.rawgit.com/uscensusbureau/citysdk/Release1.1/js/citysdk.census.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <nav class="navbar navbar-dark bg-primary">
@@ -40,6 +41,9 @@
     <!--<input type="number" id="tract" placeholder="tract"></input>-->
     <button onclick="data()">Submit</button>
   </form>
+    <p id="data">Data Appears Here:</p>
+  <p>Click anywhere to toggle the box.</p>
+  <div id="toggle">hello</div>
 </div>
 
 <div class="container">
@@ -53,9 +57,9 @@
     <li>median_home_value</li>
   </ul>
   <p>Please note: The data may take 3-5 seconds to appear.</p>
-
-  <p id="data">Data Here:</p>
 </div>
+
+
 
   <script src="js/api.js"></script> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

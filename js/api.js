@@ -36,6 +36,12 @@ function data(){
     });     
 }
 
+//JQuery
+$( document ).click(function() {
+  $( "#toggle" ).toggle( "slide" );
+});
+
+
 
 ////////// Practice Code //////////////////
 //The user enters the zip code of the area that they want to see statistics on. 
