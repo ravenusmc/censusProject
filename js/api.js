@@ -27,7 +27,7 @@ function data(){
     request.variables.push(variable);
 
     //The request to gather the actual data.
-    census.APIRequest(request, variable, function (response, variable) {
+    census.APIRequest(request, function (response) {
     //Outputs the raw JSON text-full data
     //jQuery("#data").text(JSON.stringify(response, null, 4));
     //Below outputs only income or whatever is requested. 
