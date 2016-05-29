@@ -37,9 +37,29 @@ function data(){
 }
 
 //JQuery
-$( document ).click(function() {
-  $( "#toggle" ).toggle( "slide" );
+$("#menu").click(function() {
+  $("#toggle").toggle("slide");
 });
+
+////////// Google Maps ////////////////
+
+function data(){
+    
+      array = []
+      var lat = document.getElementById("lat").value;
+      var lon = document.getElementById("lon").value;
+      array.push(lat);
+      array.push(lon);
+      alert(array);
+}
+
+var map;
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 34.1207, lng: -84.0044},
+    zoom: 10
+    });
+}
 
 
 

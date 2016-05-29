@@ -35,7 +35,7 @@
       <p id="data">Data Appears Here:</p>
     </div>
     <div class="col-md-4">
-      <p>Click anywhere to toggle the box.</p>
+      <button id="menu" class="btn btn-primary">Menu</button>
       <div id="toggle">
         <form>
           <fieldset class="form-group">
@@ -55,24 +55,30 @@
   </div>
 </div>
 
-<div class="container test">
-  <p>Please note that at this point the data() function can only take one variable.</p>
-  <p>Here are variables that I have tried and that work:</p>
-  <p> Please look at readme file for a link to more</p>
-  <ul>
-    <li>population</li>
-    <li>poverty</li>
-    <li>median_male_age</li>
-    <li>median_home_value</li>
-  </ul>
-  <p>Please note: The data may take 3-5 seconds to appear.</p>
+<div id="map" class="container">
+  <div  class="row">
+    <div class="col-md-6">
+      One of two columns
+    </div>
+    <div class="col-md-6">
+      two of two columns
+    </div>
+  </div>
 </div>
 
+<div class="container">
+  <form>
+    <input id="lat" placeholder="lat">
+    <input id="lon" placeholder="long">
+    <button onclick="data()">Submit</button>
+  </form>
+</div>
 
-
-  <script src="js/api.js"></script> 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+<script src="js/api.js"></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB33d6N7xtRGzfJMmyIzYA9Mhy6w8941O8 callback=initMap"
+async defer></script>
 </body>
 </html>
 
