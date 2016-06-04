@@ -8,7 +8,7 @@ var request = {
     "level": "county",
     "zip": "",
     "variables": [
-        "income"
+        
     ],
     "api": "acs5",
     "year": "",
@@ -28,10 +28,13 @@ function data(){
 
     //The request to gather the actual data.
     census.APIRequest(request, function (response) {
+
     //Outputs the raw JSON text-full data
     //jQuery("#data").text(JSON.stringify(response, null, 4));
+
     //Below outputs only income or whatever is requested. 
-    jQuery("#data").text(JSON.stringify(+response.data[0].income, null, 4));
+    jQuery("#data").text(JSON.stringify(+response.data[0].poverty, null, 4));
+
     //console.log(JSON.parse(test));
     //alert(parseInt(test));
     });     
@@ -40,7 +43,7 @@ function data(){
 /////////////  Sliding effect 
 
 $("#menu").click(function() {
-  $("#toggle").slideToggle(1000)
+  $("#toggle").slideToggle(550)
 });
 
 ////////// Google Maps ////////////////
