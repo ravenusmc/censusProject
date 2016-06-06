@@ -1,0 +1,181 @@
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization&signed_in=true">
+</script>
+
+<script>
+
+    //These lines declare the variables. The main variable to understand is the map variable which 
+    //will be declared further below as an object. 
+    var map;
+    var sdk = new CitySDK();
+    var census = sdk.modules.census;
+
+    //This geoCities variable is where the map will be centered.
+    var geoCities = {
+        "Asheville_NC": [35.5800, -82.5558],
+        "Austin_TX": [30.2500, -97.7500],
+        "Boston_MA": [42.3601, -71.0589],
+        "Chicago_IL": [41.8369, -87.6847],
+        "Fargo_ND": [46.8772, -96.7894],
+        "Montgomery_County_MD": [39.1319, -77.2264],
+        "NYC_NY": [40.7127, -74.0059],
+        "Portland_OR": [45.5200, -122.6819],
+        "San_Francisco_CA": [37.7833, -122.4167],
+        "Seattle_WA": [47.6097, -122.3331],
+        "Washington_DC": [38.9047, -77.0164]
+    };
+
+    var level = "place";
+    //This variables variable is an array of what variables will be looked at. In this case, it is
+    //the population variable that is being looked at. 
+    var variables = [];
+
+    //Init Function. 
+    function initialize() {
+        //The mapoptions variable MUST have two required options for every map: center and zoom. 
+        //The center option is where the map will be centered on. The zoom level will go from 1-15.
+        //1 is the furthest and 15 is the closest. 
+        var mapOptions = {
+            center: {lat: 38.91732, lng: -77.2211},
+            zoom: 10
+        };
+
+        //This line is actually creating the map object from the Map class. The getElementById 'map-canvas' portion of the code is where the map will actually be displayed on the webpage. The mapoptions variable is what will determine where the map will be centered and the zoom level. To create another map one could use an object named map. 
+
+        map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+        map.data.setStyle({
+            fillColor: 'blue'
+        });
+
+        // global infowindow
+        var infowindow = new google.maps.InfoWindow();
+
+        // When the user clicks, open an infowindow
+        map.data.addListener('click', function (event) {
+            var myHTML = "<h3>" +
+                    ((level == "blockGroup") ? "Block Group: " : (level == "tract") ? "Tract: " : "")
+                    + event.feature.getProperty("NAME") + "</h3><div style='width:150px; text-align: center;'>";
+            for (var i = 0; i < variables.length; i++) {
+                myHTML += "<br/><b>" + variables[i] + "</b>: " + event.feature.getProperty(variables[i]);
+            }
+
+            switch (level) {
+                case "blockGroup":
+                    myHTML += "<br/><b>Tract: </b>" + event.feature.getProperty("TRACT");
+                case "tract":
+                    myHTML += "<br/><b>County: </b>" + event.feature.getProperty("COUNTY");
+            }
+
+            myHTML += "</div>";
+
+            infowindow.setContent(myHTML);
+            infowindow.setPosition(event.latLng);
+            infowindow.setOptions({pixelOffset: new google.maps.Size(0, -30)});
+            infowindow.open(map);
+        });
+
+        census.enable(citySDKdemoConfiguration.apikey);
+
+        $('#clear').click(clear);
+    }
+/////////////////////////////////
+
+    //This line actually loads the google map. 
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+///////////////////////
+
+
+    function checkLoading() {
+        if (census.SUPPLEMENTAL_REQUESTS_IN_FLIGHT == 0) {
+            jQuery(".loading-icon-initialstate").hide();
+            return;
+        } else if (census.SUPPLEMENTAL_REQUESTS_IN_FLIGHT > 0) {
+            window.setTimeout(checkLoading, 1500);
+        }
+    }
+
+/////////////////
+    function clear() {
+        map.data.forEach(function (feature) {
+            map.data.remove(feature);
+        });
+    }
+
+////////////////
+
+    function loadCity() {
+        var city = jQuery('#city').val();
+
+
+        var reqLevel = jQuery('#level').val();
+        if (city == "Montgomery_County_MD" && level == "place") {
+            reqLevel = "county";
+        }
+
+
+        jQuery(".variable-selection-bar input:checked").each(function (n, o) {
+            variables.push(o.value);
+        });
+
+        variables = variables.filter(function (n) {
+            return n != undefined
+        });
+        variables = variables.filter(function (n) {
+            return n != ""
+        });
+
+
+        jQuery(".loading-icon-initialstate").show();
+
+        map.panTo(new google.maps.LatLng(geoCities[city][0], geoCities[city][1]));
+
+
+
+        //BEGIN CITYSDK REQUEST
+        //This is the CITYSDK request that will pull data. The lat and lng variables, in the case below,
+        //come from Asheville, NC above. 
+        var request = {
+            "lat": geoCities[city][0],
+            "lng": geoCities[city][1],
+            "level": reqLevel,
+            "variables": variables
+        };
+
+        //Conditional statement looking either "tract" or "blockGroup" and if either one is present, 
+        //sublevel is true.  
+        if (reqLevel == "tract" || reqLevel == "blockGroup") {
+            request.sublevel = true;
+            request.container = (city == "Montgomery_County_MD") ? "county" : "place";
+        }
+
+        census.GEORequest(request, function (geojson) {
+            checkLoading();
+            map.data.addGeoJson(geojson);
+        });
+        //END CITYSDK REQUEST
+    }
+
+///////////////////////
+
+    //I believe that the information below has to deal with how the map will be displayed...
+
+    jQuery(document).ready(function () {
+
+        jQuery("#cenClearMap").click(clear);
+
+        jQuery("#cen-load-the-data").click(loadCity);
+
+        jQuery(".variable-selection-bar input").click(function () {
+            if (jQuery('.variable-selection-bar input:checked').size() > 0) {
+                jQuery("#cen-load-the-data").removeAttr("disabled", "disabled");
+            } else {
+                jQuery("#cen-load-the-data").attr("disabled", "disabled");
+            }
+
+        });
+
+
+    });
+//////////////////////
+</script>

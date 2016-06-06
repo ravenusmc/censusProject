@@ -15,6 +15,7 @@ var request = {
     "tract": ""
 };
 
+
 //Function which will gather data from user and then submit it to the API. The API will then return 
 //the data that was requested. 
 function data(){
@@ -55,6 +56,9 @@ function initMap() {
     scrollwheel: false
     });
 }
+
+
+
 
 
 
