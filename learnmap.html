@@ -40,17 +40,18 @@
         };
 
         //This line is actually creating the map object from the Map class. The getElementById 'map-canvas' portion of the code is where the map will actually be displayed on the webpage. The mapoptions variable is what will determine where the map will be centered and the zoom level. To create another map one could use an object named map. 
-
         map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
         map.data.setStyle({
             fillColor: 'blue'
         });
 
-        // global infowindow
+        // global infowindow, if you want to create an info window this variable is what will
+        //start to call the function. 
         var infowindow = new google.maps.InfoWindow();
 
-        // When the user clicks, open an infowindow
+        // When the user clicks, open an infowindow, I actually do not like this format. Look at 
+        //map.js file for another easier to read format. 
         map.data.addListener('click', function (event) {
             var myHTML = "<h3>" +
                     ((level == "blockGroup") ? "Block Group: " : (level == "tract") ? "Tract: " : "")
@@ -76,6 +77,7 @@
 
         census.enable(citySDKdemoConfiguration.apikey);
 
+        //closes the api window
         $('#clear').click(clear);
     }
 /////////////////////////////////
@@ -128,6 +130,7 @@
 
         jQuery(".loading-icon-initialstate").show();
 
+        //Could this line be whats drawing the lines for the polygon? Not sure. 
         map.panTo(new google.maps.LatLng(geoCities[city][0], geoCities[city][1]));
 
 
