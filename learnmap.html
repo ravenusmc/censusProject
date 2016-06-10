@@ -42,6 +42,7 @@
         //This line is actually creating the map object from the Map class. The getElementById 'map-canvas' portion of the code is where the map will actually be displayed on the webpage. The mapoptions variable is what will determine where the map will be centered and the zoom level. To create another map one could use an object named map. 
         map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
+        //This will set the background color for the polygon which will be placed on the map. 
         map.data.setStyle({
             fillColor: 'blue'
         });
@@ -149,9 +150,13 @@
         //sublevel is true.  
         if (reqLevel == "tract" || reqLevel == "blockGroup") {
             request.sublevel = true;
+            //condition operator checking to see if the request.container is equal to city. If it is, 
+            //county is assigned and if it is not, place is assigned. 
             request.container = (city == "Montgomery_County_MD") ? "county" : "place";
         }
 
+        //I believe that this code here is where the data actually comes from and gets the data 
+        //to appear on google maps. 
         census.GEORequest(request, function (geojson) {
             checkLoading();
             map.data.addGeoJson(geojson);

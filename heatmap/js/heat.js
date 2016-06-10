@@ -1,19 +1,63 @@
+// This example uses the Google Maps JavaScript API's Data layer
+// to create a rectangular polygon with 2 holes in it.
+
+function initMap() {
+
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 10,
+    center: {lat: 33.960, lng: -84.022},
+  });
+
+  // Define the LatLng coordinates for the outer path.
+  var outerCoords = [
+    {lat: 33.7615, lng: -84.0285}, // north west
+    {lat: 33.9327, lng: -83.8124}, // south west
+    {lat: 34.0006, lng: -83.8774}, // south east
+    {lat: 34.1141, lng: -83.8308},
+    {lat: 34.0965, lng: -83.8802},
+    {lat: 34.1421, lng: -84.0624},
+    {lat: 33.9139, lng: -84.2290}  // north east
+  ];
+
+  //alert(outerCoords[6].lat + " " + outerCoords[6].lng);
+
+
+  //This will set the background color for the polygon which will be placed on the map. 
+  map.data.setStyle({
+      fillColor: 'blue',
+      strokeWeight: 1
+  });
 
 
 
+  map.data.add({geometry: new google.maps.Data.Polygon([outerCoords])})
+}
+
+//////////////////  USING GEOSON DATA. /////////////////
+
+// var map;
+
+// function initMap() {
+//   map = new google.maps.Map(document.getElementById('map'), {
+//     zoom: 4,
+//     center: {lat: -28, lng: 137}
+//   });
+
+// map.data.setStyle({
+//   fillColor: 'red',
+//   strokeWeight: 1
+// });
+
+// // NOTE: This uses cross-domain XHR, and may not work on older browsers.
+// //This loads the data. On my learnmap file, addGeoJson is called. 
+// map.data.loadGeoJson('https://storage.googleapis.com/maps-devrel/google.json');
+
+// }
 
 
 
-
-
-
-
-
-
-
-
-
-
+///////////// GETTING A SIMPLE MAP ON THE SCREEN /////////////
 
 // function initMap() {
 
