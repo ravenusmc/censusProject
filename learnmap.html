@@ -156,7 +156,7 @@
         }
 
         //I believe that this code here is where the data actually comes from and gets the data 
-        //to appear on google maps. 
+        //to appear on google maps. The Census.GEORequest pulls the data from U.S Census bureau. 
         census.GEORequest(request, function (geojson) {
             checkLoading();
             map.data.addGeoJson(geojson);
