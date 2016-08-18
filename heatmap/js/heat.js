@@ -25,7 +25,7 @@
 
 //   //This will set the background color for the polygon which will be placed on the map. 
 //   map.data.setStyle({
-//       fillColor: 'blue',
+//       fillColor: 'orange',
 //       strokeWeight: 1
 //   });
 
@@ -66,7 +66,7 @@ function initMap() {
     zoom: 2
   });
 
-  // Get the earthquake data (JSONP format)
+  //Get the earthquake data (JSONP format)
   // This feed is a copy from the USGS feed, you can find the originals here:
   //   http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
   var script = document.createElement('script');
